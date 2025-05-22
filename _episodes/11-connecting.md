@@ -165,6 +165,7 @@ keys and a record of authorized connections.
 
 Please see 
 
-https://hpc.llnl.gov/software/visualization-software/vnc-realvnc
+[https://hpc.llnl.gov/software/visualization-software/vnc-realvnc](https://hpc.llnl.gov/software/visualization-software/vnc-realvnc
+)
 
 for info on how to connect to LC systems via RealVNC's VNC Viewer software. We'll show you how to connect to a machine called `czvnc`, using the VNC Viewer software.
