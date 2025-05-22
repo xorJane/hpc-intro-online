@@ -76,7 +76,7 @@ supplied by the instructors.
 ```
 {: .language-bash}
 
-You may be asked for your password. Watch out: the characters you type after
+You will now be asked for your password -- your PIN + token code. Watch out: the characters you type after
 the password prompt are not displayed on the screen. Normal output will resume
 once you press `Enter`.
 
