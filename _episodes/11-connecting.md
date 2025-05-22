@@ -76,6 +76,13 @@ supplied by the instructors.
 ```
 {: .language-bash}
 
+Note: to enable graphics, you can add the `-Y` flag like this
+
+```
+{{ site.local.prompt }} ssh -Y {{ site.remote.user }}@<machine>.llnl.org
+```
+{: .language-bash}
+
 You will now be asked for your password -- your PIN + token code. Watch out: the characters you type after
 the password prompt are not displayed on the screen. Normal output will resume
 once you press `Enter`.
