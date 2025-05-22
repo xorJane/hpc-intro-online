@@ -72,7 +72,7 @@ cluster. Replace `{{ site.remote.user }}` with your username or the one
 supplied by the instructors.
 
 ```
-{{ site.local.prompt }} ssh {{ site.remote.user }}@{{ site.remote.login }}
+{{ site.local.prompt }} ssh {{ site.remote.user }}@<machine>.llnl.org
 ```
 {: .language-bash}
 
@@ -136,7 +136,7 @@ Great, we know where we are! Let's see what's in our current directory:
 ```
 {: .language-bash}
 ```
-id_ed25519.pub
+
 ```
 {: .output}
 
@@ -150,7 +150,7 @@ double-check, include hidden files in your directory listing:
 ```
 {: .language-bash}
 ```
-  .            .bashrc           id_ed25519.pub
+  .            .bashrc           
   ..           .ssh
 ```
 {: .output}
@@ -161,6 +161,10 @@ the other files, or files like them: `.bashrc` is a shell configuration file,
 which you can edit with your preferences; and `.ssh` is a directory storing SSH
 keys and a record of authorized connections.
 
-{% unless site.remote.portal %}
-https://en.wikipedia.org/wiki/EdDSA
-{% endunless %}
+## Using VNC Viewer as an alternative
+
+Please see 
+
+https://hpc.llnl.gov/software/visualization-software/vnc-realvnc
+
+for info on how to connect to LC systems via RealVNC's VNC Viewer software. We'll show you how to connect to a machine called `czvnc`, using the VNC Viewer software.
