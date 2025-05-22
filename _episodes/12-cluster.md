@@ -28,7 +28,7 @@ keypoints:
 If you have not already connected to {{ site.remote.name }}, please do so now:
 
 ```
-{{ site.local.prompt }}  ssh {{ site.remote.user }}@{{ site.remote.login }}
+{{ site.local.prompt }}  ssh {{ site.remote.user }}@<machine>.llnl.org
 ```
 {: .language-bash}
 
