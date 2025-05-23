@@ -16,6 +16,17 @@ Performing work on a remote computer is not very useful if we cannot get files
 to or from the cluster. There are several options for transferring data between
 computing resources using CLI and GUI utilities, a few of which we will cover.
 
+## Hopper
+
+Most of this lesson comes from the standard HPC Carpentries. We've left in the
+original coverage of `scp` for transferring files, but we recommend using Hopper:
+
+[Hopper docs](https://hpc.llnl.gov/software/data-management-tools/using-hopper)
+
+Hopper provides a graphical user interface for transferring files between your
+laptop/desktop and LC systems. We'll demo this in session and encourage you to try
+it out too!
+
 ## Download Lesson Files From the Internet
 
 One of the most straightforward ways to download files is to use either `curl`
