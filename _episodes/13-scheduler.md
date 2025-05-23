@@ -133,7 +133,7 @@ status, we check the queue using the command
 > launched it from. Use `ls` to find and `cat` to read the file.
 {: .discussion}
 
-## Customising a Job
+## Customizing a Job
 
 The job we just ran used all of the scheduler's default options. In a
 real-world scenario, that's probably not what we want. The default options
@@ -255,8 +255,11 @@ hostname
 ```
 {: .output}
 
-Submit the job and wait for it to finish. Once it is has finished, check the
-log file.
+Submit the job and wait for it to finish. You can check the status with
+`squeue -u $USER` or `squeue -j <Job ID>`, **or** you can get more information
+with `checkjob <job ID>`. Try this out!
+
+Once it is has finished, check the log file.
 
 ```
 {{ site.remote.prompt }} {{ site.sched.submit.name }} {% if site.sched.submit.options != '' %}{{ site.sched.submit.options }} {% endif %}example-job.sh
@@ -320,7 +323,21 @@ too much for a login node to handle. A good example of this might be building a
 genome index for alignment with a tool like [HISAT2][hisat]. Fortunately, we
 can run these types of tasks as a one-off with `{{ site.sched.interactive }}`.
 
-{% include {{ site.snippets }}/scheduler/using-nodes-interactively.snip %}
+### Interactive Jobs
+
+Sometimes, you will need resources for interactive use. Perhaps it’s our first
+time running an analysis or we are attempting to debug something that
+went wrong with a previous job. We recommend 
+`salloc -N {nodes} -t {# minutes} -p {partition}`. For example:
+
+```
+salloc -N1 -t20 -ppdebug
+```
+
+When this request comes out of queue, you'll be presented with a bash prompt on 
+a compute node from the `pdebug` queue. This session will last for 20 minutes.
+Note that the prompt will likely change to reflect your new location,
+in this case the compute node we are logged on. You can also verify this with hostname.
 
 {% include links.md %}
 
