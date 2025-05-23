@@ -86,7 +86,10 @@ system files and change as you install new software or upgrade your OS.
 > ## Using HPC filesystems
 >
 > On HPC systems, you have a number of places where you can store your files.
-> We'll talk more about options on LC [here](https://xorjane.github.io/hpc-intro-online/12B-filesystems/index.html)
+> 
+> **For more info about options on LC, please see
+> [Exploring Remote Resources: Filesystems](https://xorjane.github.io/hpc-intro-online/12B-filesystems/index.html)**
+>
 > These differ in both the amount of space allocated and whether or not they
 > are backed up.
 >
