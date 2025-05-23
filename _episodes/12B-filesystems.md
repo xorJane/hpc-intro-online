@@ -6,8 +6,8 @@ questions:
 - "Where do I put my files?"
 - "From where can I see my files?"
 objectives:
-- "Write files to $HOME, workspace, and lustre
-- View or edit those files from multiple machines
+- "Write files to $HOME, workspace, and lustre"
+- "View or edit those files from multiple machines"
 keypoints:
 - "Unlike on your laptop, here the computer and the filesystem are separate."
 - "You have multiple options for storing your data, including NFS and parallel filesystems."
