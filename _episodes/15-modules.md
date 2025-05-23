@@ -81,8 +81,8 @@ To see available software modules, use `module avail`:
 ### Listing Currently Loaded Modules
 
 You can use the `module list` command to see which modules you currently have
-loaded in your environment. If you have no modules loaded, you will see a
-message telling you so
+loaded in your environment. In the example below, the user has no modules loaded;
+on LC, you'll always start with about 5 pre-loaded.
 
 ```
 {{ site.remote.prompt }} module list
@@ -94,24 +94,40 @@ message telling you so
 ## Loading and Unloading Software
 
 To load a software module, use `module load`. In this example we will use
-Python 3.
+VSCode.
 
-Initially, Python 3 is not loaded. We can test this by using the `which`
+Initially, VS Code is not loaded. We can test this by using the `which`
 command. `which` looks for programs the same way that Bash does, so we can use
 it to tell us where a particular piece of software is stored.
 
 ```
-{{ site.remote.prompt }} which python3
+{{ site.remote.prompt }} which code
 ```
 {: .language-bash}
 
-{% include {{ site.snippets }}/modules/missing-python.snip %}
+Try this, and you'll get a message like `usr/bin/which: no code in...`
 
-We can load the `python3` command with `module load`:
+We can see that multiple versions of vscode are available via
 
-{% include {{ site.snippets }}/modules/module-load-python.snip %}
+```
+{{ site.remote.prompt }} module avail vscode
+```
+{: .language-bash}
 
-{% include {{ site.snippets }}/modules/python-executable-dir.snip %}
+and then we can load the `code` command with `module load`:
+
+```
+{{ site.remote.prompt }} module load vscode
+```
+{: .language-bash}
+
+Now, if you look for the `code` binary again,
+
+```
+{{ site.remote.prompt }} which code
+/collab/usr/global/tools/vscode/toss_3_x86_64_ib/vscode-1.97.2/bin/code
+```
+{: .language-bash}
 
 So, what just happened?
 
@@ -120,7 +136,8 @@ environment variable. `$PATH` is a special environment variable that controls
 where a UNIX system looks for software. Specifically `$PATH` is a list of
 directories (separated by `:`) that the OS searches through for a command
 before giving up and telling us it can't find it. As with all environment
-variables we can print it out using `echo`.
+variables we can print it out using `echo`. Your $PATH will look different, 
+but here's an example:
 
 ```
 {{ site.remote.prompt }} echo $PATH
@@ -129,21 +146,15 @@ variables we can print it out using `echo`.
 
 {% include {{ site.snippets }}/modules/python-module-path.snip %}
 
-You'll notice a similarity to the output of the `which` command. In this case,
-there's only one difference: the different directory at the beginning. When we
-ran the `module load` command, it added a directory to the beginning of our
-`$PATH`. Let's examine what's there:
-
-{% include {{ site.snippets }}/modules/python-ls-dir-command.snip %}
-
-{% include {{ site.snippets }}/modules/python-ls-dir-output.snip %}
+When you run `echo $PATH` yourself, you should see the output of `which code`
+towards the beginning of the output you get. When we
+ran the `module load vscode` command, it added a directory to the beginning of our
+`$PATH`. 
 
 Taking this to its conclusion, `module load` will add software to your `$PATH`.
 It "loads" software. A special note on this - depending on which version of the
 `module` program that is installed at your site, `module load` will also load
 required software dependencies.
-
-{% include {{ site.snippets }}/modules/software-dependencies.snip %}
 
 Note that this module loading process happens principally through
 the manipulation of environment variables like `$PATH`. There
