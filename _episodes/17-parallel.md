@@ -26,7 +26,7 @@ we have to improve the performance of computational tasks.
 If you disconnected, log back in to the cluster.
 
 ```
-{{ site.local.prompt }} ssh {{ site.remote.user }}@{{ site.remote.login }}
+{{ site.local.prompt }} ssh {{ site.remote.user }}@<machine>.llnl.org
 ```
 {: .language-bash}
 
