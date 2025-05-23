@@ -39,8 +39,6 @@ Running `ls` should prove to yourself that the file `testfile` exists after runn
 
 Now, try viewing that file from a different system, like `tioga`: `ssh` to a different LC machine, `cd /usr/workspace/$USER`, and run `ls`. 
 
-It lives on a filesystem *attached* to ruby. This means that you can log into another system sharing that same filesystem and see your data.
-
 **The HPC system/machine is where you create the data. The data is written to and can be accessed from a filesystem. Multiple machines connect to and share multiple filesystems.**
 
 ## Filesystem options
