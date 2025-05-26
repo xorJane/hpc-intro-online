@@ -32,14 +32,20 @@ If you disconnected, log back in to the cluster.
 
 ## Install the Amdahl Program
 
-With the Amdahl source code on the cluster, we can install it, which will
-provide access to the `amdahl` executable.
-Move into the extracted directory, then use the Package Installer for Python,
-or `pip`, to install it in your ("user") home directory:
+The Amdahl executable is already installed at `/usr/global/docs/training/amdahl/bin/amdahl`.
+You can add this binary to your path for ease of use via
 
 ```
-{{ site.remote.prompt }} cd amdahl
-{{ site.remote.prompt }} python3 -m pip install --user .
+{{ site.remote.prompt }} source /usr/global/docs/training/amdahl/bin/activate
+```
+{: .language-bash}
+
+If you would like to install it on your own, you might run
+
+```
+{{ site.remote.prompt }} module load python/3.10.8
+{{ site.remote.prompt }} virtualenv --system-site-packages amdahlenv # to create a virtual environment called `amdahlenv`
+{{ site.remote.prompt }} pip install amdahl
 ```
 {: .language-bash}
 
