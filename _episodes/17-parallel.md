@@ -87,7 +87,20 @@ Create a submission file, requesting one task on a single node, then launch it.
 ```
 {: .language-bash}
 
-{% include {{ site.snippets }}/parallel/one-task-jobscript.snip %}
+```
+#!/bin/bash
+#SBATCH -J solo-job
+#SBATCH -p pdebug # we'll likely change this during the live course!
+#SBATCH -N 1
+#SBATCH -n 1
+
+# Load the computing environment we need
+source /usr/global/docs/training/amdahl/bin/activate
+
+# Execute the task
+amdahl
+```
+{: .language-bash}
 
 ```
 {{ site.remote.prompt }} {{ site.sched.submit.name }} serial-job.sh
@@ -190,7 +203,21 @@ Let's modify the job script to request more cores and use the MPI run-time.
 ```
 {: .language-bash}
 
-{% include {{ site.snippets }}/parallel/four-tasks-jobscript.snip %}
+
+```
+#!/bin/bash
+#SBATCH -J parallel-job
+#SBATCH -p pdebug
+#SBATCH -N 1
+#SBATCH -n 4
+
+# Load the computing environment we need
+source /usr/global/docs/training/amdahl/bin/activate
+
+# Execute the task
+srun amdahl
+```
+{: .language-bash}
 
 Then submit your job. Note that the submission command has not really changed
 from how we submitted the serial job: all the parallel settings are in the
@@ -288,7 +315,21 @@ code gets.
 {{ site.remote.prompt }} cat parallel-job.sh
 ```
 
-{% include {{ site.snippets }}/parallel/eight-tasks-jobscript.snip %}
+
+```
+#!/bin/bash
+#SBATCH -J parallel-job
+#SBATCH -p pdebug
+#SBATCH -N 1
+#SBATCH -n 8
+
+# Load the computing environment we need
+source /usr/global/docs/training/amdahl/bin/activate
+
+# Execute the task
+srun amdahl
+```
+{: .language-bash}
 
 Then submit your job. Note that the submission command has not really changed
 from how we submitted the serial job: all the parallel settings are in the
